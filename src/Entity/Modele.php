@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\ModeleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * @ORM\Entity(repositoryClass=ModeleRepository::class)
@@ -38,7 +41,7 @@ class Modele
     private $photo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=category::class, inversedBy="modeles")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="modeles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
