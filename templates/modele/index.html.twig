@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tous les modèles !{% endblock %}
+
+{% block body %}
+    <h1>Tous les modèles de la table modèle : </h1>
+    {% for modele in modeles %}
+        <div>
+            <h2>{{ loop.index }} / {{ modele.name }} - Catégorie : {{ modele.category.name }}</h2>
+            <p>{{ modele.description }}</p>
+            {# Lien vers la fiche de la série : #}
+            <a href="{{ path("modele_show", { id: modele.id }) }}">Voir le modèle</a>
+        </div>
+    {% else %}
+        Aucun modèle trouvé.
+    {% endfor %}
+
+    <a href="{{ path('home_index') }}">
+        Retour à l'accueil
+    </a>
+{% endblock %}
