@@ -1,0 +1,99 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+    {% include '_components/_navbar.html.twig' %}
+    <section class="presentation-site">
+        <h2> Bienvenue sur Tricot en Duo ! </h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
+        do eiusmod tempor ncididunt ut labore et dolore magna aliqua
+        et dolore magna aliqua.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor ncididunt ut labore et dolore magna aliquaet dolore magna aliqua.</p>
+    </section>
+    <div class="grid-container">
+    <!--image1-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Combinaison bébé</a>
+            <div class="location-image">
+                <a href="combinaison bébé">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/chaussettes-bebe.png') }}" alt="chaussette-bebe"></a>
+            </div>
+        </article>
+        <!--image2-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">debardeur femme </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/debardeur-femme2.png') }}" alt="débardeur femme"></a>
+            </div>
+        </article>
+        <!--image3-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">cheche femme </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/cheche-femme.png') }}" alt="chèche femme"></a>
+            </div>
+        </article>
+        <!--image4-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">pull coeur femme </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/pull-coeur.png') }}" alt="pull coeur femme"></a>
+            </div>
+        </article>
+        <!--image5-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Pull nope femme </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/pull-nope.png') }}" alt="Pull nope femme"></a>
+            </div>
+        </article>
+        <!--image6-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Pull irlandais femme </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/pull-irlandais-femme.png') }}" alt="Pull irlandais femme"></a>
+            </div>
+        </article>
+        <!--image7-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Pull physalis </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/pull-orange.png') }}" alt="Pull Physalis femme"></a>
+            </div>
+        </article>
+        <!--image8-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Pull norvégien homme </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/pull-homme-norvegien.png') }}" alt="Pull norvégien homme"></a>
+            </div>
+        </article>
+        <!--image9-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Echarpe homme rayée </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/echarpe-homme-rayee.png') }}" alt="Echarpe homme rayée"></a>
+            </div>
+        </article>
+        <!--image10-->
+        <article id="3685" class="location-listing">
+        <a class="location-title" href="#">Gilet layette fille rose </a>
+            <div class="location-image">
+                <a href="#">
+                    <img class="picture" width="300" height="169" src="{{ asset('build/images/gilet-bebe-fille-rose.png') }}" alt="Echarpe homme rayée"></a>
+            </div>
+        </article>
+    </div>
+{% endblock %}
