@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modèle{{ modele.id }}{% endblock %}
+{% block title %}Modèle{{ modele.name }}{% endblock %}
 
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
     <div class="media">
-        <img class="align-self-start mr-3" src="{{modele.image}}" alt="{{ modele.name }} image">
+        <img class="align-self-start mr-3" src="{{modele.photo}}" alt="{{ modele.name }} image">
         <div class="media-body">
             <h1 class="mt-0">{{ modele.name }}</h1>
             <p>{{ modele.description }}</p>

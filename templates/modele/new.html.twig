@@ -1,11 +1,18 @@
 {# templates/modele/new.html.twig #}
 {% extends "base.html.twig" %}
 
+{% block title %} Créer un nouveau modèle {% endblock %}
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Ajouter un modèle</button>
-    {{ form_end(form) }}
-    {% include "_components/_footer.html.twig" %}
+    <h1 class= "title-page">Création nouveau modèle : </h1>
+    <section class="section-category-index">
+        <div class= "template-forms">   
+           
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btn btn-secondary">Ajouter un modèle</button>
+                {{ form_end(form) }}
+            
+        </div>
+    </section>
 {% endblock %}
