@@ -6,6 +6,7 @@ use App\Repository\ModeleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -22,6 +23,8 @@ class Modele
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="merci de remplir ce champs")
+     * @Assert\Length(max="255", maxMessage="Le nom saisi {{ value }} est trop long, il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $name;
 
@@ -32,19 +35,35 @@ class Modele
 
     /**
      * @ORM\Column(type="string", length=5000)
+     * @Assert\NotBlank(message="merci de remplir ce champs")
+     * @Assert\Length(max="5000", maxMessage="La description saisie {{ value }} est trop longue, elle ne devrait pas dépasser {{ limit }} caractères")
      */
     private $explication;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="merci de remplir ce champs")
+     * @Assert\Length(max="255", maxMessage="Le lien de la photo saisi {{ value }} est trop long, il ne devrait pas dépasser {{ limit }} caractères")
      */
     private $photo;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="modeles")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank(message="merci de remplir ce champs")
      */
     private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Pelote::class, mappedBy="Modele")
+     * @Assert\NotBlank(message="merci de remplir ce champs")
+     */
+    private $pelotes;
+
+    public function __construct()
+    {
+        $this->pelotes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -107,6 +126,33 @@ class Modele
     public function setCategory(?category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Pelote[]
+     */
+    public function getPelotes(): Collection
+    {
+        return $this->pelotes;
+    }
+
+    public function addPelote(Pelote $pelote): self
+    {
+        if (!$this->pelotes->contains($pelote)) {
+            $this->pelotes[] = $pelote;
+            $pelote->addModele($this);
+        }
+
+        return $this;
+    }
+
+    public function removePelote(Pelote $pelote): self
+    {
+        if ($this->pelotes->removeElement($pelote)) {
+            $pelote->removeModele($this);
+        }
 
         return $this;
     }

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pelote index{% endblock %}
+
+{% block body %}
+    <h1>Pelote index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Material</th>
+                <th>Meters</th>
+                <th>TailleAiguilles</th>
+                <th>Couleur</th>
+                <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pelote in pelotes %}
+            <tr>
+                <td>{{ pelote.id }}</td>
+                <td>{{ pelote.name }}</td>
+                <td>{{ pelote.material }}</td>
+                <td>{{ pelote.meters }}</td>
+                <td>{{ pelote.tailleAiguilles }}</td>
+                <td>{{ pelote.couleur }}</td>
+                <td>{{ pelote.image }}</td>
+                <td>
+                    <a href="{{ path('pelote_show', {'id': pelote.id}) }}">show</a>
+                    <a href="{{ path('pelote_edit', {'id': pelote.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pelote_new') }}">Create new</a>
+{% endblock %}
