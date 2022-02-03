@@ -3,6 +3,7 @@
 {% block title %}Categorie{{ category.name }}{% endblock %}
 
 {% block body %}
+    {% include '_components/_navbar.html.twig' %}
     {% for modele in modeles %}
     <div>
         <h2>{{ loop.index }} / <a href="{{ path("modele_show", { id: modele.id }) }}">{{ modele.name }}</a> - Catégorie : {{ modele.category.name }}</h2>
@@ -14,4 +15,5 @@
     <a href="{{ path('category_index') }}">
         Retour à la liste des catégories
     </a>
+    {% include "_components/_footer.html.twig" %}
 {% endblock %}

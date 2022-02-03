@@ -2,8 +2,10 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+    {% include '_components/_navbar.html.twig' %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
     <button type="submit">Ajouter un modèle</button>
     {{ form_end(form) }}
+    {% include "_components/_footer.html.twig" %}
 {% endblock %}

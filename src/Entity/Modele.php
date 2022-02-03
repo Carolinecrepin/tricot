@@ -56,7 +56,6 @@ class Modele
 
     /**
      * @ORM\ManyToMany(targetEntity=Pelote::class, mappedBy="Modele")
-     * @Assert\NotBlank(message="merci de remplir ce champs")
      */
     private $pelotes;
 

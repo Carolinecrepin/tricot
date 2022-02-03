@@ -3,6 +3,7 @@
 {% block title %}Pelote index{% endblock %}
 
 {% block body %}
+    {% include '_components/_navbar.html.twig' %}
     <h1>Pelote index</h1>
 
     <table class="table">
@@ -42,4 +43,5 @@
     </table>
 
     <a href="{{ path('pelote_new') }}">Create new</a>
+    {% include "_components/_footer.html.twig" %}
 {% endblock %}

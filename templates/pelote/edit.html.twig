@@ -3,6 +3,7 @@
 {% block title %}Edit Pelote{% endblock %}
 
 {% block body %}
+    {% include '_components/_navbar.html.twig' %}
     <h1>Editer Pelote</h1>
 
     {{ include('pelote/_form.html.twig', {'button_label': 'Update'}) }}
@@ -10,4 +11,5 @@
     <a href="{{ path('pelote_index') }}">Retour à la liste</a>
 
     {{ include('pelote/_delete_form.html.twig') }}
+    {% include "_components/_footer.html.twig" %}
 {% endblock %}

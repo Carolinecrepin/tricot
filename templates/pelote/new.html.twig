@@ -3,9 +3,11 @@
 {% block title %}New Pelote{% endblock %}
 
 {% block body %}
+    {% include '_components/_navbar.html.twig' %}
     <h1>Create new Pelote</h1>
 
     {{ include('pelote/_form.html.twig') }}
 
     <a href="{{ path('pelote_index') }}">back to list</a>
+    {% include "_components/_footer.html.twig" %}
 {% endblock %}

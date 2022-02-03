@@ -3,7 +3,8 @@
 {% block title %}Tous les modèles !{% endblock %}
 
 {% block body %}
-    <h1>Tous les modèles de la table modèle : </h1>
+    {% include '_components/_navbar.html.twig' %}
+    <h1>Tous les modèles : </h1>
     {% for modele in modeles %}
         <div>
             <h2>{{ loop.index }} / {{ modele.name }} - Catégorie : {{ modele.category.name }}</h2>
@@ -18,4 +19,5 @@
     <a href="{{ path('home_index') }}">
         Retour à l'accueil
     </a>
+
 {% endblock %}
