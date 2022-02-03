@@ -1,24 +1,32 @@
 {% extends "base.html.twig" %}
 
 {% block title %} Toutes les catégories{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+{% endblock %}
+
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    <h1>Toutes les catégories de modèles de tricot : </h1>
-    {% for category in categories %}
-        <div class= "template-cards">
-            <div class= "card-category">
-                <div>
-                    <h2>{{ loop.index }} / {{ category.name }}</h2>
-                
-                    <a href="{{ path("category_show", { categoryName: category.name }) }}">Voir la catégorie</a>
-                </div>
+    <h1 class= "title-page">Toutes les catégories de modèles de tricot : </h1>
+    <section class="section-category-index">
+        {% for category in categories %}
+            <div class= "template-cards">
+                <div class= "card-category">
+                    <div>
+                        <h2>{{ category.name }}</h2>
+                        <img class="photo-category" src="{{asset('build/images/tricot.jpg')}}" alt="tricot-category" />
+                        <a class="lien-card" href="{{ path("category_show", { categoryName: category.name }) }}">Voir la catégorie</a>
+                    </div>
+                </div>    
             </div>
-        </div>
-    {% else %}
-        Aucune catégorie trouvée.
-    {% endfor %}
-
-    <a href="{{ path('home_index') }}">
-        Retour à l'accueil
-    </a>
+        {% else %}
+            Aucune catégorie trouvée.
+        {% endfor %}
+    </section>
+    <div class="lien-retour">
+        <a class="lien-card" href="{{ path('home_index') }}">
+            Retour à l'accueil
+        </a>
+    </div>
 {% endblock %}
