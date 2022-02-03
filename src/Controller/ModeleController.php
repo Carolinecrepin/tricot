@@ -5,16 +5,18 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use App\Form\ModeleType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/modele", name="modele_")
  */
 class ModeleController extends AbstractController
 {
-    /**
-     * show all rows from modele's entity
+   /**
+     * Correspond à la route /modele/ et au name "modele_index"
      * @Route("/", name="index")
-     * @return Response A response instance
      */
     public function index(): Response
     {
@@ -28,12 +30,40 @@ class ModeleController extends AbstractController
         );
     }
 
+    /**
+     * The controller for the modele add form
+     *
+     * @Route("/new", name="new")
+     */
+    public function new(Request $request) : Response
+    {
+        // Create a new Modele Object
+        $modele = new modele();
+        // Create the associated Form
+        $form = $this->createForm(ModeleType::class, $modele);
+        // Get data from HTTP request
+        $form->handleRequest($request);
+        // Was the form submitted ?
+        if ($form->isSubmitted()) {
+            // Deal with the submitted data
+            // Get the Entity Manager
+            $entityManager = $this->getDoctrine()->getManager();
+            // Persist Modele Object
+            $entityManager->persist($modele);
+            // Flush the persisted object
+            $entityManager->flush();
+            // Finally redirect to modeles list
+            return $this->redirectToRoute('modele_index');
+        }
+        // Render the form
+        return $this->render('modele/new.html.twig', [
+            "form" => $form->createView(),
+        ]);
+    }
 
     /**
-     * Getting a modele by id
-     *
+     * Correspond à la route /modele/show et au name "modele_show"
      * @Route("/show/{id<^[0-9]+$>}", name="show")
-     * @return Response
      */
     public function show(int $id):Response
     {
