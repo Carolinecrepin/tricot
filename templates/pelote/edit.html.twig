@@ -3,7 +3,9 @@
 {% block title %}Edit Pelote{% endblock %}
 
 {% block body %}
+<hr>
     {% include '_components/_navbar.html.twig' %}
+    <hr>
     <h1 class="title-page">Editer la pelote</h1>
 
     {{ include('pelote/_form.html.twig', {'button_label': 'Update'}) }}

@@ -3,7 +3,9 @@
 {% block title %}Modèle{{ modele.name }}{% endblock %}
 
 {% block body %}
+<hr>
     {% include '_components/_navbar.html.twig' %}
+    <hr>
     <div class="media">
     
         <img class="modele-photo" src="{{ modele.photo}}" alt="{{ modele.name }} image">

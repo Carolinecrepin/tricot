@@ -7,7 +7,9 @@
 {% endblock %}
 
 {% block body %}
+    <hr>
     {% include '_components/_navbar.html.twig' %}
+    <hr>
     <h1 class= "title-page">Toutes les catégories de modèles de tricot : </h1>
     <section class="section-category-index">
         {% for category in categories %}
