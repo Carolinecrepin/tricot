@@ -1,47 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pelote index{% endblock %}
+{% block title %} Les Pelotes{% endblock %}
 
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    <h1>Pelote index</h1>
+    <h1 class="title-page">Les pelotes : </h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Material</th>
-                <th>Meters</th>
-                <th>TailleAiguilles</th>
-                <th>Couleur</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <section class="section-pelote-index">
         {% for pelote in pelotes %}
-            <tr>
-                <td>{{ pelote.id }}</td>
-                <td>{{ pelote.name }}</td>
-                <td>{{ pelote.material }}</td>
-                <td>{{ pelote.meters }}</td>
-                <td>{{ pelote.tailleAiguilles }}</td>
-                <td>{{ pelote.couleur }}</td>
-                <td>{{ pelote.image }}</td>
-                <td>
-                    <a href="{{ path('pelote_show', {'id': pelote.id}) }}">show</a>
-                    <a href="{{ path('pelote_edit', {'id': pelote.id}) }}">edit</a>
-                </td>
-            </tr>
+        <div class= "template-cards-pelote">
+                <div class= "card-category">
+                    <div>
+                        <h2>{{ pelote.name }}</h2>
+                        <p>{{ pelote.image }}</p>
+                        <p>{{ pelote.material }}</p>
+                        <p>{{ pelote.meters }}</p>
+                        <p>{{ pelote.tailleAiguilles }}</p>
+                        <p>{{ pelote.couleur }}</p>
+                        {# Lien vers la fiche du modele : #}
+                        <a class="lien-card" href="{{ path("pelote_show", { id: pelote.id }) }}">Voir la pelote</a>
+                        <a class="lien-card" href="{{ path('pelote_edit', {'id': pelote.id}) }}">éditer</a>
+                    </div>
+                </div>
+        </div>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Il n'y a pas de pelotes</td>
             </tr>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('pelote_new') }}">Create new</a>
-    {% include "_components/_footer.html.twig" %}
+    </section>
+        <div class="lien-retour">
+            <a href="{{ path('pelote_new') }}">Ajouter une nouvelle pelote</a>
+        </div>
 {% endblock %}

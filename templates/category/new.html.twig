@@ -2,10 +2,18 @@
 
 {% extends "base.html.twig" %}
 
+{% block title %} Créer une nouvelle catégorie {% endblock %}
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Add category</button>
-    {{ form_end(form) }}
+    <h1 class= "title-page">Création d'une nouvelle catégorie : </h1>
+    <section class="section-category-index">
+        <div class= "template-forms">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="button-creer">
+                <button type="submit" class="btn btn-secondary">Ajouter une nouvelle catégorie</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
 {% endblock %}

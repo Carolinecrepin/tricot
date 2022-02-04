@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Pelote{% endblock %}
+{% block title %}Nouvelle Pelote{% endblock %}
 
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    <h1>Create new Pelote</h1>
+    <h1 class= "title-page">Ajout d'une nouvelle pelote : </h1>
 
     {{ include('pelote/_form.html.twig') }}
 
-    <a href="{{ path('pelote_index') }}">back to list</a>
-    {% include "_components/_footer.html.twig" %}
+    <div class="lien-retour">
+        <a href="{{ path('pelote_index') }}">retour à la liste</a>
+    </div>
 {% endblock %}

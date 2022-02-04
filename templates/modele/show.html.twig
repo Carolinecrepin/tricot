@@ -5,16 +5,17 @@
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
     <div class="media">
-        <img class="align-self-start mr-3" src="{{modele.photo}}" alt="{{ modele.name }} image">
+        <img class="modele-photo" src="{{modele.photo}}" alt="{{ modele.name }} image">
         <div class="media-body">
             <h1 class="mt-0">{{ modele.name }}</h1>
             <p>{{ modele.description }}</p>
             <p>Catégorie : {{ modele.category.name }}</p>
+            <p class="explications"> Explications : {{ modele.explication }}</p>
         </div>
     </div>
-
-    <a href="{{ path('modele_index') }}">
-        Retour à la liste des modèles
-    </a>
-
+    <div class="lien-retour">
+        <a class="lien-card" href="{{ path('modele_index') }}">
+            Retour à la liste des modèles
+        </a>
+    </div>
 {% endblock %}
