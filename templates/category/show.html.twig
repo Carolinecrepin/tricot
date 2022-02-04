@@ -4,13 +4,14 @@
 
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    <h1 class= "title-page">Categorie{{ category.name }}</h1>
+    <h1 class= "title-page">Categorie : {{ category.name }}</h1>
     <section class="section-category-index">
         {% for modele in modeles %}
-        <div class= "template-cards">
+        <div class= "template-cards-vignette">
             <div class= "card-category">
-                <h2><a href="{{ path("modele_show", { id: modele.id }) }}">{{ modele.name }}</a></h2>
-                 <h3>Catégorie : {{ modele.category.name }}</h3>
+                <h3><a href="{{ path("modele_show", { id: modele.id }) }}">{{ modele.name }}</a></h3>
+                    <img class="modele-photo-vignette" src="{{ modele.photo}}" alt="{{ modele.name }} image">
+                 <h4>Catégorie : {{ modele.category.name }}</h4>
                 <p>{{ modele.description }}</p>
             </div>
         </div>
@@ -18,7 +19,9 @@
         Aucun modèle trouvé.
         {% endfor %}
     </section>
-    <a href="{{ path('category_index') }}">
-        Retour à la liste des catégories
-    </a>   
+    <div class="lien-retour">
+        <a class="lien-card" href="{{ path('category_index') }}">
+            Retour à la liste des catégories
+        </a>
+    </div>   
 {% endblock %}

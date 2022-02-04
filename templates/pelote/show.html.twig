@@ -1,48 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Pelote{% endblock %}
+{% block title %}Pelote {{ pelote.name }} {% endblock %}
 
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
-    <h1>Pelote</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ pelote.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ pelote.name }}</td>
-            </tr>
-            <tr>
-                <th>Material</th>
-                <td>{{ pelote.material }}</td>
-            </tr>
-            <tr>
-                <th>Meters</th>
-                <td>{{ pelote.meters }}</td>
-            </tr>
-            <tr>
-                <th>TailleAiguilles</th>
-                <td>{{ pelote.tailleAiguilles }}</td>
-            </tr>
-            <tr>
-                <th>Couleur</th>
-                <td>{{ pelote.couleur }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ pelote.image }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('pelote_index') }}">back to list</a>
-
-    <a href="{{ path('pelote_edit', {'id': pelote.id}) }}">edit</a>
-
-    {{ include('pelote/_delete_form.html.twig') }}
-
+    <section class="section-category-index">
+        <div class= "template-cards-vignette-pelote">
+            <div class= "card-category">    
+                <h1>{{ pelote.name }}</h1>
+                <p><img class="modele-photo-vignette-pelote" src="{{ pelote.image}}" alt="{{ pelote.name }} image"></p>
+                <p>Qualité : {{ pelote.material }}</p>
+                <p>Métrage : {{ pelote.meters }}</p>
+                <p>Taille d'aiguilles : {{ pelote.tailleAiguilles }}</p>
+                <p>Couleur : {{ pelote.couleur }}</p>
+            </div>
+        </div>
+    </section>
+        <div class="lien-retour">
+            <a class="lien-card" href="{{ path('pelote_index') }}">Retour à la liste des pelotes</a>
+            <a class="lien-card" href="{{ path('pelote_edit', {'id': pelote.id}) }}">Editer la fiche</a>
+        </div>
+    
 {% endblock %}

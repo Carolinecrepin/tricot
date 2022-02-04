@@ -10,9 +10,7 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 class ModeleFixtures extends Fixture
 {
     const MODELES = [
-        'chale trendy femme',
-        'pull coeur femme',
-
+        'chale trendy femme'
     ];
 
     public function load(ObjectManager $manager): void

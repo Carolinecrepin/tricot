@@ -11,15 +11,10 @@
         <div class= "template-cards-pelote">
                 <div class= "card-category">
                     <div>
-                        <h2>{{ pelote.name }}</h2>
-                        <p>{{ pelote.image }}</p>
-                        <p>{{ pelote.material }}</p>
-                        <p>{{ pelote.meters }}</p>
-                        <p>{{ pelote.tailleAiguilles }}</p>
-                        <p>{{ pelote.couleur }}</p>
-                        {# Lien vers la fiche du modele : #}
-                        <a class="lien-card" href="{{ path("pelote_show", { id: pelote.id }) }}">Voir la pelote</a>
-                        <a class="lien-card" href="{{ path('pelote_edit', {'id': pelote.id}) }}">éditer</a>
+                        <h3>{{ pelote.name }}</h3>
+                        <p><img class="modele-photo-vignette-pelote" src="{{ pelote.image}}" alt="{{ pelote.name }} image"></p>                       
+                        <p><a class="lien-card" href="{{ path("pelote_show", { id: pelote.id }) }}">Voir la pelote</a></p>
+                        <p><a class="lien-card" href="{{ path('pelote_edit', {'id': pelote.id}) }}">éditer</a></p>
                     </div>
                 </div>
         </div>
@@ -30,6 +25,6 @@
         {% endfor %}
     </section>
         <div class="lien-retour">
-            <a href="{{ path('pelote_new') }}">Ajouter une nouvelle pelote</a>
+            <a class="lien-card" href="{{ path('pelote_new') }}">Ajouter une nouvelle pelote</a>
         </div>
 {% endblock %}

@@ -7,12 +7,12 @@
     <h1 class="title-page">Tous les modèles : </h1>
     <section class="section-category-index">
         {% for modele in modeles %}
-        <div class= "template-cards">
+        <div class= "template-cards-vignette">
                 <div class= "card-category">
                     <div>
-                        <h2>{{ modele.name }}</h2>
+                        <h3>{{ modele.name }}</h3>
                         <h4>Catégorie : {{ modele.category.name }}</h4>
-                        <p>{{ modele.photo }}</p>
+                        <p><img class="modele-photo-vignette" src="{{ modele.photo}}"></p>
                         <p>{{ modele.description }}</p>
                         {# Lien vers la fiche du modele : #}
                         <a class="lien-card" href="{{ path("modele_show", { id: modele.id }) }}">Voir le modèle</a>

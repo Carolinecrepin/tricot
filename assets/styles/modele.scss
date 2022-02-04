@@ -137,6 +137,26 @@ a.nav-link {
     margin:2rem;
   }
 
+  .template-cards-vignette {
+    width: 25rem;
+    height: 25rem;
+    background-color: rgb(248, 233, 236);
+    border: 0.1px solid lightgray;
+    border-radius: 5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin:2rem;
+  }
+
+  .modele-photo-vignette {
+    border-radius:5px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    padding:0.5rem;
+    margin:1rem;
+    width:180px;
+    height:200px;
+    align-self:center;
+  }
+
   .explications {
     display: flex;
     flex-direction: column;

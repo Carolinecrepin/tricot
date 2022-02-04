@@ -5,12 +5,14 @@
 {% block body %}
     {% include '_components/_navbar.html.twig' %}
     <div class="media">
-        <img class="modele-photo" src="{{modele.photo}}" alt="{{ modele.name }} image">
+    
+        <img class="modele-photo" src="{{ modele.photo}}" alt="{{ modele.name }} image">
         <div class="media-body">
             <h1 class="mt-0">{{ modele.name }}</h1>
             <p>{{ modele.description }}</p>
             <p>Catégorie : {{ modele.category.name }}</p>
-            <p class="explications"> Explications : {{ modele.explication }}</p>
+            <h4> Explications :</h4>
+            <p class="explications">{{ modele.explication }}</p>
         </div>
     </div>
     <div class="lien-retour">
